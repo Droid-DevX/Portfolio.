@@ -1173,8 +1173,7 @@ hr {
    SKILLS / SERVICES SECTION
    ================================ */
 
-.services,
-.section.services {
+.services {
   margin: 0;
   padding: 90px 200px;
   display: flex;
@@ -1233,8 +1232,7 @@ hr {
 
 /* SECTION HEADINGS (shared) */
 
-.services h1,
-.section.services h1 {
+.services h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
   font-weight: 700;
@@ -1244,8 +1242,7 @@ hr {
   text-transform: uppercase;
 }
 
-.services p,
-.section.services>p {
+.services p {
   padding-bottom: 20px;
   font-size: 14px;
   color: var(--text-secondary);
