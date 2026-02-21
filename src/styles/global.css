@@ -88,6 +88,13 @@ body {
   max-width: 1200px;
 }
 
+.name {
+  background: linear-gradient(90deg, #00F5FF, #7A5CFF, #FF2FD8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(122, 92, 255, 0.35);
+}
+
 .card {
   background: rgba(17, 24, 39, 0.75);
   border: 1px solid var(--border);

@@ -8,7 +8,7 @@ const About: React.FC = () => {
                     <img src={aboutImg} alt="Ayush Tandon" />
                 </div>
                 <div className="info-text">
-                    <h5>@aayush</h5>
+                    <h5>@_ayush.xx</h5>
                     <p>AI/ML Engineer • DL/RL Enthusiast • Flutter Developer</p>
                 </div>
             </div>

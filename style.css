@@ -54,6 +54,13 @@ body {
   color: #cfcfcf;
 }
 
+.name {
+  background: linear-gradient(90deg, #00F5FF, #7A5CFF, #FF2FD8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(122, 92, 255, 0.35);
+}
+
 .dot {
   color: #ff4d6d;
 }

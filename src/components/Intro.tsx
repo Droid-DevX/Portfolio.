@@ -58,7 +58,9 @@ const Intro: React.FC<IntroProps> = ({ onFinish }) => {
                             <h1>
                                 Welcome to <br />
                                 my Portfolio <br />
-                                Website
+                                <span className="name bg-gradient-to-r from-cyan-400 via-violet-500 to-pink-500 bg-clip-text text-transparent font-bold">
+                                    Droid-DevX
+                                </span>
                             </h1>
 
                             <p className="desc">
