@@ -1,22 +1,47 @@
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 
 interface FormState {
     [key: string]: string;
     user_name: string;
     user_email: string;
+    subject: string;
     message: string;
 }
+
+// Play sound from MP3 file
+const playSound = (type: "success" | "error") => {
+    try {
+        const soundFile = type === "success" ? "/sounds/success.mp3" : "/sounds/error.mp3";
+        const audio = new Audio(soundFile);
+        audio.volume = 0.5; // Set volume to 50%
+        audio.play().catch((err) => {
+            console.log("Could not play sound:", err);
+        });
+    } catch (error) {
+        console.log("Audio error:", error);
+    }
+};
 
 const Contact: React.FC = () => {
     const [form, setForm] = useState<FormState>({
         user_name: "",
         user_email: "",
+        subject: "",
         message: "",
     });
 
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState<"success" | "error" | null>(null);
+
+    // Play sound when status changes
+    useEffect(() => {
+        if (status === "success") {
+            playSound("success");
+        } else if (status === "error") {
+            playSound("error");
+        }
+    }, [status]);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -43,6 +68,7 @@ const Contact: React.FC = () => {
             setForm({
                 user_name: "",
                 user_email: "",
+                subject: "",
                 message: "",
             });
         } catch (error) {
@@ -55,7 +81,7 @@ const Contact: React.FC = () => {
     return (
         <section id="contact" className="section reveal">
             <div className="container">
-                <h2 className="section-title">Get In Touch</h2>
+                <h2 className="section-title"><span style={{ color: '#6366F1' }}>Get In Touch</span></h2>
 
                 <div className="contact-content">
                     {/* LEFT SIDE */}
@@ -155,6 +181,17 @@ const Contact: React.FC = () => {
                             </div>
 
                             <div className="form-group">
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    placeholder="Subject"
+                                    required
+                                    value={form.subject}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+                            <div className="form-group">
                                 <textarea
                                     name="message"
                                     rows={5}
@@ -165,18 +202,41 @@ const Contact: React.FC = () => {
                                 />
                             </div>
 
-                            <button type="submit" className="btn">
-                                {loading ? "Sending..." : "Send Message"}
+                            <button type="submit" className="btn btn-submit" disabled={loading}>
+                                {loading ? (
+                                    <>
+                                        <span className="btn-text">Sending</span>
+                                        <span className="dot-loader">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </span>
+                                    </>
+                                ) : (
+                                    "Send Message"
+                                )}
                             </button>
 
                             {status === "success" && (
-                                <p className="form-success">✅ Message sent successfully!</p>
+                                <p className="form-success"> Message sent successfully!</p>
                             )}
 
                             {status === "error" && (
-                                <p className="form-error">❌ Failed to send. Try again.</p>
+                                <p className="form-error">Failed to send. Try again.</p>
                             )}
                         </form>
+                        {loading && (
+                            <div className="loading-overlay">
+                                <div className="loading-container">
+                                    <div className="typewriter">
+                                        <div className="slide"><i /></div>
+                                        <div className="paper" />
+                                        <div className="keyboard" />
+                                    </div>
+                                    <p className="loading-text">Sending your message...</p>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
