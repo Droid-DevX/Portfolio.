@@ -38,7 +38,7 @@ const projects: Project[] = [
         description: 'University-exclusive verified dating platform for CUK students.',
         tags: [{ label: 'Dart' }, { label: 'TypeScript' }, { label: 'Supabase' }],
         links: [
-            { href: 'https://github.com/CUK-COMMIT', icon: 'fab fa-github', label: 'GitHub' },
+            { href: 'https://github.com/CUK-COMMIT/cukcommit-downloads', icon: 'fab fa-github', label: 'GitHub' },
             { href: 'https://cuk-commit.vercel.app', icon: 'fas fa-external-link-alt', label: 'Live' },
         ],
     },
@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
                         <p>{project.description}</p>
                         <div className="skills">
                             {project.tags.map(tag => (
-                                <a href="#" key={tag.label}>{tag.label}</a>
+                                <a key={tag.label}>{tag.label}</a>
                             ))}
                         </div>
                         <div className="btns">
