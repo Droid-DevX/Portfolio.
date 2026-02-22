@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
     const [activeSection, setActiveSection] = useState<string>('home')
     // Track how much of each section is currently visible
     const visibilityMap = useRef<Map<string, number>>(new Map())
-    const debounceTimer = useRef<NodeJS.Timeout | null>(null)
+    const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     useEffect(() => {
         // Pick whichever section currently has the most pixels visible in viewport
