@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                         </div>
 
                         <a
-                            href="https://drive.google.com/file/d/1myyyq76laooBapOjinYfJhkbQN2Rno_L/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1a1dBBKQFNKN8WYX5ic49ZVkmR6j8hdcL/view?usp=sharing"
                             target="_blank"
                             rel="noreferrer noopener"
                             className="resume-btn"
