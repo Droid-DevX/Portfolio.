@@ -1,12 +1,12 @@
-import cukImg from '../../images/cuk.png'
-import sportsImg from '../../images/sport.jpg'
-import financialImg from '../../images/house.png'
-import aslImg from '../../images/sign.png'
-import lungImg from '../../images/lung_pred.png'
-import paisa from '../../images/finance.png'
-import lungCImg from '../../images/lung_classs.png' 
-import nameImg from '../../images/namee.png'  
-import quizImg from '../../images/quizz.png' 
+import cukImg from '../../images/cuk.avif'
+import sportsImg from '../../images/sport.avif'
+import financialImg from '../../images/house.avif'
+import aslImg from '../../images/sign.avif'
+import lungImg from '../../images/lung_pred.avif'
+import paisa from '../../images/finance.avif'
+import lungCImg from '../../images/lung_classs.avif' 
+import nameImg from '../../images/namee.avif'  
+import quizImg from '../../images/quizz.avif' 
 
 interface ProjectTag {
     label: string
