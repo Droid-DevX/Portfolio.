@@ -21,7 +21,7 @@ const About: React.FC = () => {
                         intelligent, data-driven systems supported by robust backend architecture and scalable
                         cross-platform applications.<br />
                         <br />
-                        I have developed multi-class <span className="magnify-text" data-text="Deep Learning Models">deep learning models</span>, <span className="magnify-text" data-text="NLP Similarity Systems">NLP-based similarity systems</span>, financial
+                        I have developed multi-class <span className="magnify-text" data-text="Deep Learning Models">Deep Learning Models</span>, <span className="magnify-text" data-text="NLP Similarity Systems">NLP-based similarity systems</span>, financial
                         analytics platforms, and healthcare prediction solutions. I am a core contributor to <span className="magnify-text" data-text="CUK Commit">CUK
                             Commit</span>, where I lead the <span className="magnify-text" data-text="Flutter UI/UX">Flutter-based UI/UX</span>, onboarding experience, and premium feature
                         architecture using <span className="magnify-text" data-text="Flutter">Flutter</span>, <span className="magnify-text" data-text="React">React</span>, and <span className="magnify-text" data-text="Supabase">Supabase</span>. I also collaborate in open-source Android
