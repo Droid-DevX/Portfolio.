@@ -6,7 +6,7 @@ import lungImg from '../../images/lung_pred.avif'
 import paisa from '../../images/finance.avif'
 import lungCImg from '../../images/lung_classs.avif' 
 import nameImg from '../../images/namee.avif'  
-import quizImg from '../../images/quizz.avif' 
+import autonomousDrivingImg from '../../images/carr.avif' 
 
 interface ProjectTag {
     label: string
@@ -44,6 +44,17 @@ const projects: Project[] = [
     },
     {
         id: 2,
+        image: autonomousDrivingImg,
+        imageAlt: 'Autonomous Driving',
+        title: 'Autonomous Driving',
+        description: 'End-to-end self-driving pipeline with real-time object detection and lane detection.',
+        tags: [{ label: 'Gymnasium' }, { label: 'PPO' }, { label: 'CarRacing-v3' }],
+        links: [
+            { href: 'https://github.com/Droid-DevX/AutonomousDriving', icon: 'fab fa-github', label: 'GitHub' },
+        ],
+    },
+    {
+        id: 3,
         image: sportsImg,
         imageAlt: 'Sports Image Classifier',
         title: 'Sports Image Classification',
@@ -54,7 +65,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 3,
+        id: 4,
         image: financialImg,
         imageAlt: 'Financial Forecasting',
         title: 'House Price Prediction',
@@ -66,7 +77,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 4,
+        id: 5,
         image: aslImg,
         imageAlt: 'Similar Name Finder',
         title: 'Real-Time Sign Language Recognition',
@@ -77,7 +88,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 5,
+        id: 6,
         image: lungImg,
         imageAlt: 'Lung Cancer Prediction',
         title: 'Lung Cancer Prediction',
@@ -88,7 +99,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 6,
+        id: 7,
         image: paisa,
         imageAlt: 'Smart Financial Forecasting System',
         title: 'Smart Financial Forecasting System',
@@ -100,7 +111,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 7,
+        id: 8,
         image: lungCImg,
         imageAlt: 'Lung Cancer Classification',
         title: 'Lung Cancer Classification',
@@ -111,7 +122,7 @@ const projects: Project[] = [
         ],
     },
     {
-        id: 8,
+        id: 9,
         image: nameImg,
         imageAlt: 'Similar Name Finder',
         title: 'Similar Name Finder',
@@ -119,17 +130,6 @@ const projects: Project[] = [
         tags: [{ label: 'Embeddings' }, { label: 'NLP' }, { label: 'PyTorch' }],
         links: [
             { href: 'https://github.com/Droid-DevX/SimilarNameFinder', icon: 'fab fa-github', label: 'GitHub' },
-        ],
-    },
-    {
-        id: 9,
-        image: quizImg,
-        imageAlt: 'Quiz App',
-        title: 'Quiz App (Flutter)',
-        description: 'Lightweight mobile quiz app with state management and clean UI.',
-        tags: [{ label: 'Flutter' }, { label: 'Dart' }, { label: 'Provider' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/quiz_app', icon: 'fab fa-github', label: 'GitHub' },
         ],
     },
 ]
