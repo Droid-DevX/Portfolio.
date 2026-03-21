@@ -2,10 +2,10 @@ import cukImg from '../../images/cuk.avif'
 import sportsImg from '../../images/sport.avif'
 import financialImg from '../../images/house.avif'
 import aslImg from '../../images/sign.avif'
-import lungImg from '../../images/lung_pred.avif'
-import paisa from '../../images/finance.avif'
+// import lungImg from '../../images/lung_pred.avif'
+// import paisa from '../../images/finance.avif'
 import lungCImg from '../../images/lung_classs.avif' 
-import nameImg from '../../images/namee.avif'  
+// import nameImg from '../../images/namee.avif'  
 import autonomousDrivingImg from '../../images/carr.avif' 
 
 interface ProjectTag {
@@ -87,31 +87,31 @@ const projects: Project[] = [
             { href: 'https://github.com/Droid-DevX/Real-Time-Sign-Language-Recognition', icon: 'fab fa-github', label: 'GitHub' },
         ],
     },
+    // {
+    //     id: 6,
+    //     image: lungImg,
+    //     imageAlt: 'Lung Cancer Prediction',
+    //     title: 'Lung Cancer Prediction',
+    //     description: 'Classical ML pipeline for early-risk prediction with tabular features.',
+    //     tags: [{ label: 'Python' }, { label: 'Sklearn' }, { label: 'Metrics' }],
+    //     links: [
+    //         { href: 'https://github.com/Droid-DevX/Lung_Cancer_Prediction', icon: 'fab fa-github', label: 'GitHub' },
+    //     ],
+    // },
+    // {
+    //     id: 7,
+    //     image: paisa,
+    //     imageAlt: 'Smart Financial Forecasting System',
+    //     title: 'Smart Financial Forecasting System',
+    //     description: 'Deployed Streamlit app with real business use case and predictive analytics.',
+    //     tags: [{ label: 'Regression' }, { label: 'Streamlit' }, { label: 'Python' }],
+    //     links: [
+    //         { href: 'https://github.com/Droid-DevX/SmartFinancialForecastingSystem', icon: 'fab fa-github', label: 'GitHub' },
+    //         { href: 'https://smartfinancialforecastingsystem05.streamlit.app/', icon: 'fas fa-external-link-alt', label: 'Live' },
+    //     ],
+    // },
     {
         id: 6,
-        image: lungImg,
-        imageAlt: 'Lung Cancer Prediction',
-        title: 'Lung Cancer Prediction',
-        description: 'Classical ML pipeline for early-risk prediction with tabular features.',
-        tags: [{ label: 'Python' }, { label: 'Sklearn' }, { label: 'Metrics' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/Lung_Cancer_Prediction', icon: 'fab fa-github', label: 'GitHub' },
-        ],
-    },
-    {
-        id: 7,
-        image: paisa,
-        imageAlt: 'Smart Financial Forecasting System',
-        title: 'Smart Financial Forecasting System',
-        description: 'Deployed Streamlit app with real business use case and predictive analytics.',
-        tags: [{ label: 'Regression' }, { label: 'Streamlit' }, { label: 'Python' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/SmartFinancialForecastingSystem', icon: 'fab fa-github', label: 'GitHub' },
-            { href: 'https://smartfinancialforecastingsystem05.streamlit.app/', icon: 'fas fa-external-link-alt', label: 'Live' },
-        ],
-    },
-    {
-        id: 8,
         image: lungCImg,
         imageAlt: 'Lung Cancer Classification',
         title: 'Lung Cancer Classification',
@@ -121,17 +121,17 @@ const projects: Project[] = [
             { href: 'https://github.com/Droid-DevX/LungCancerClassification', icon: 'fab fa-github', label: 'GitHub' },
         ],
     },
-    {
-        id: 9,
-        image: nameImg,
-        imageAlt: 'Similar Name Finder',
-        title: 'Similar Name Finder',
-        description: 'Custom embeddings and NLP pipeline for name similarity search.',
-        tags: [{ label: 'Embeddings' }, { label: 'NLP' }, { label: 'PyTorch' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/SimilarNameFinder', icon: 'fab fa-github', label: 'GitHub' },
-        ],
-    },
+    // {
+    //     id: 9,
+    //     image: nameImg,
+    //     imageAlt: 'Similar Name Finder',
+    //     title: 'Similar Name Finder',
+    //     description: 'Custom embeddings and NLP pipeline for name similarity search.',
+    //     tags: [{ label: 'Embeddings' }, { label: 'NLP' }, { label: 'PyTorch' }],
+    //     links: [
+    //         { href: 'https://github.com/Droid-DevX/SimilarNameFinder', icon: 'fab fa-github', label: 'GitHub' },
+    //     ],
+    // },
 ]
 
 const Projects: React.FC = () => {
