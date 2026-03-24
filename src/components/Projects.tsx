@@ -1,12 +1,15 @@
 import cukImg from '../../images/cuk.avif'
 import sportsImg from '../../images/sport.avif'
-import financialImg from '../../images/house.avif'
+// import financialImg from '../../images/house.avif'
 import aslImg from '../../images/sign.avif'
 // import lungImg from '../../images/lung_pred.avif'
 // import paisa from '../../images/finance.avif'
-import lungCImg from '../../images/lung_classs.avif' 
+// import lungCImg from '../../images/lung_classs.avif' 
 // import nameImg from '../../images/namee.avif'  
 import autonomousDrivingImg from '../../images/carr.avif' 
+import quadraImg from '../../images/qudra.avif'
+import faceImg from '../../images/face.avif'
+import ragImg from '../../images/rag.avif'
 
 interface ProjectTag {
     label: string
@@ -55,6 +58,29 @@ const projects: Project[] = [
     },
     {
         id: 3,
+        image: quadraImg   ,
+        imageAlt: 'Quadruped Locomotion',
+        title: 'Quadruped Locomotion',
+        description: 'Designed quadruped locomotion using kinematics and control for stable movement.',
+        tags: [{ label: 'Robotics' }, { label: 'Unitree A1 URDF' }, { label: 'SB-3' }],
+        links: [
+            { href: 'https://github.com/Droid-DevX/Quadruped_Walking', icon: 'fab fa-github', label: 'GitHub' },
+        ],
+    },
+    {
+        id: 4,
+        image: ragImg,
+        imageAlt: 'Vectorless RAG QA System',
+        title: 'Vectorless RAG QA System',
+        description: 'Built a vectorless RAG QA system using text search and LLM reasoning.',
+        tags: [{ label: 'Groq LLaMA' }, { label: 'LangChain' }, { label: 'Streamlit' }],
+        links: [
+            { href: 'https://github.com/Droid-DevX/VectorlessRAG_QA', icon: 'fab fa-github', label: 'GitHub' },
+            { href: 'https://droid-devx-vectorlessrag-qa-app-8eprz4.streamlit.app/', icon: 'fas fa-external-link-alt', label: 'Live' },
+        ],
+    },
+    {
+        id: 5,
         image: sportsImg,
         imageAlt: 'Sports Image Classifier',
         title: 'Sports Image Classification',
@@ -64,29 +90,18 @@ const projects: Project[] = [
             { href: 'https://github.com/Droid-DevX/Sports_Image_classification', icon: 'fab fa-github', label: 'GitHub' },
         ],
     },
+ 
     {
-        id: 4,
-        image: financialImg,
-        imageAlt: 'Financial Forecasting',
-        title: 'House Price Prediction',
-        description: 'Regression modeling with feature engineering and cross‑validation.',
-        tags: [{ label: 'Streamlit' }, { label: 'Jupyter' }, { label: 'Regression' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/HousePricePrediction', icon: 'fab fa-github', label: 'GitHub' },
-            { href: 'https://housepriceprediction05.streamlit.app/', icon: 'fas fa-external-link-alt', label: 'Live' },
-        ],
-    },
-    {
-        id: 5,
-        image: aslImg,
-        imageAlt: 'Similar Name Finder',
-        title: 'Real-Time Sign Language Recognition',
-        description: 'Sequence modeling with LSTMs for gesture classification.',
-        tags: [{ label: 'LSTM' }, { label: 'OpenCV' }, { label: 'Python' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/Real-Time-Sign-Language-Recognition', icon: 'fab fa-github', label: 'GitHub' },
-        ],
-    },
+    id: 6,
+    image: faceImg,
+    imageAlt: 'Face Recognition System',
+    title: 'Real-Time Face Recognition',
+    description: 'Custom CNN-based face recognition with real-time detection and high accuracy.',
+    tags: [{ label: 'PyTorch' }, { label: 'CNN' }, { label: 'OpenCV' }],
+    links: [
+        { href: 'https://github.com/Droid-DevX/FaceRecognition', icon: 'fab fa-github', label: 'GitHub' },
+    ],
+}
     // {
     //     id: 6,
     //     image: lungImg,
@@ -110,17 +125,17 @@ const projects: Project[] = [
     //         { href: 'https://smartfinancialforecastingsystem05.streamlit.app/', icon: 'fas fa-external-link-alt', label: 'Live' },
     //     ],
     // },
-    {
-        id: 6,
-        image: lungCImg,
-        imageAlt: 'Lung Cancer Classification',
-        title: 'Lung Cancer Classification',
-        description: 'Image classification with a simple Streamlit UI for exploration.',
-        tags: [{ label: 'Sklearn' }, { label: 'PyTorch' }, { label: 'CNN' }],
-        links: [
-            { href: 'https://github.com/Droid-DevX/LungCancerClassification', icon: 'fab fa-github', label: 'GitHub' },
-        ],
-    },
+    // {
+    //     id: 6,
+    //     image: lungCImg,
+    //     imageAlt: 'Lung Cancer Classification',
+    //     title: 'Lung Cancer Classification',
+    //     description: 'Image classification with a simple Streamlit UI for exploration.',
+    //     tags: [{ label: 'Sklearn' }, { label: 'PyTorch' }, { label: 'CNN' }],
+    //     links: [
+    //         { href: 'https://github.com/Droid-DevX/LungCancerClassification', icon: 'fab fa-github', label: 'GitHub' },
+    //     ],
+    // },
     // {
     //     id: 9,
     //     image: nameImg,
