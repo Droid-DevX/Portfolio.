@@ -1,7 +1,7 @@
 import cukImg from '../../images/cuk.avif'
 import sportsImg from '../../images/sport.avif'
 // import financialImg from '../../images/house.avif'
-import aslImg from '../../images/sign.avif'
+// import aslImg from '../../images/sign.avif'
 // import lungImg from '../../images/lung_pred.avif'
 // import paisa from '../../images/finance.avif'
 // import lungCImg from '../../images/lung_classs.avif' 
