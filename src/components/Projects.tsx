@@ -95,7 +95,7 @@ const projects: Project[] = [
     id: 6,
     image: faceImg,
     imageAlt: 'Face Recognition System',
-    title: 'Real-Time Face Recognition',
+    title: 'Face Recognition',
     description: 'Custom CNN-based face recognition with real-time detection and high accuracy.',
     tags: [{ label: 'PyTorch' }, { label: 'CNN' }, { label: 'OpenCV' }],
     links: [
