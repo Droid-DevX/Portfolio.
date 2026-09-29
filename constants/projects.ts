@@ -69,7 +69,7 @@ const projectsList: ProjectListType = [
         techStack:
           "C, C++, ROS 2, Crazyflie 2.1+, Python, Firmware",
 
-        githubLink: "",
+        githubLink: "https://github.com/Droid-DevX/ROS2_Dynamic_Topology_Reconfiguration",
 
         technicalDetails: {
           problem:
