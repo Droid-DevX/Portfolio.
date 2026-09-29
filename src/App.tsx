@@ -1,7 +1,56 @@
-import Home from './pages/Home'
+import gsap from "gsap";
+import { PageProvider, usePage } from "../context/PageContext";
+import AboutSection from "./components/About";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar/Navbar";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Experience from "./components/Experience";
+import Publications from "./components/Publication";
+import { ToastProvider } from "./components/Toaster/ToastProvider";
+
+import { ScrollToPlugin, ScrollTrigger, SplitText } from "gsap/all";
+
+gsap.registerPlugin(ScrollToPlugin, SplitText, ScrollTrigger);
 
 function App() {
-    return <Home />
+  return (
+    <PageProvider>
+      <InnerApp />
+    </PageProvider>
+  );
 }
+export default App;
 
-export default App
+function InnerApp() {
+  const {
+    currentPage,
+    homeRef,
+    aboutRef,
+    experienceRef,
+    publicationsRef,
+    skillsRef,
+    projectsRef,
+    contactRef,
+  } = usePage();
+
+  return (
+    <ToastProvider>
+      <div className="overflow-x-hidden">
+        <Navbar currentPage={currentPage} />
+        <main>
+          <Home sectionRef={homeRef} />
+          <AboutSection sectionRef={aboutRef} />
+          <Experience sectionRef={experienceRef} />
+          <Publications sectionRef={publicationsRef} />
+          <Projects sectionRef={projectsRef} />
+          <Skills sectionRef={skillsRef} />
+          <Contact sectionRef={contactRef} />
+        </main>
+        <Footer />
+      </div>
+    </ToastProvider>
+  );
+}

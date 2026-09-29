@@ -1,0 +1,73 @@
+import type { AnimationType } from "../../animations/animationTypes";
+import type { Skill } from "../../constants/constantTtypes";
+
+type MenuIconProps = {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+type MenuListProps = {
+  isMobile: boolean;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isProjectsOpen: boolean;
+  setIsProjectsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isResumeOpen: boolean;
+  setIsResumeOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  currentPage: string;
+};
+
+type TimelineItem = {
+  period: string;
+  title: string;
+  subtitle?: string;
+  location?: string;
+  details: string[];
+};
+
+type TimelineProps = {
+  sectionTitle?: string;
+  items: TimelineItem[];
+  variant?: "dark" | "light";
+};
+
+
+interface CarouselProps {
+  animationType?: AnimationType; // choose fade, slide-up, zoom
+  animationDuration?: number;
+}
+
+interface SlideProps extends Omit<Skill, "id"> {
+  active: boolean;
+  slideRef: (el: HTMLDivElement | null) => void;
+}
+
+interface NavigationProps {
+  current: number;
+  goToSlide: (index: number) => void;
+  pauseWithDebounce: () => void;
+}
+
+type FormValues = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+type ValidationResult = {
+  isValid: boolean;
+  errors: Partial<Record<keyof FormValues, string>>;
+};
+
+export type {
+  MenuIconProps,
+  MenuListProps,
+  TimelineItem,
+  TimelineProps,
+  CarouselProps,
+  SlideProps,
+  NavigationProps,
+  ValidationResult,
+  FormValues
+};
