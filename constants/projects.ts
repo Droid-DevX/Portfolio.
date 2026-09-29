@@ -37,7 +37,7 @@ const projectsList: ProjectListType = [
         techStack:
           "Python, PyTorch, Stable-Baselines3, Gymnasium, PyBullet, SAC",
 
-        githubLink: "",
+        githubLink: "https://github.com/Droid-DevX/RL-Enhanced-Guidance-Node-for-Actual-Fault-Tolerant-Control-of-Crazyflie-V2.1",
 
         technicalDetails: {
           problem:
@@ -96,6 +96,7 @@ const projectsList: ProjectListType = [
     backgroundImg: "/images/projects/bg-manipulation.avif",
     category: "Robotics",
     techStack: "MuJoCo, Kinematics, Stable-Baselines3, PPO, PID",
+    githubLink: "https://github.com/Droid-DevX/Robotic_Manipulation_Using_PPO_PID",
 
     technicalDetails: {
       problem:
