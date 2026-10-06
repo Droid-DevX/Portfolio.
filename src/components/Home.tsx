@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
 import { homeAnimations } from "../../animations/homeAnimation";
+import SplineHero from "./SplineHero";
 
 const Home = ({
   sectionRef,
@@ -8,6 +9,7 @@ const Home = ({
   sectionRef: (node?: Element | null) => void;
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
 
   useGSAP(
     () => {
@@ -16,43 +18,72 @@ const Home = ({
     { scope: scrollRef }
   );
 
-  return (
-    <section ref={scrollRef} id="home" className="relative pt-24 pb-12 md:pt-28 md:pb-16 w-full">
-      <div ref={sectionRef} id="hero" className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center">
-        {/* Floating 3D Decoration — restrained, absolute background placement */}
-        <div id="hero-image-container" className="absolute inset-0 pointer-events-none flex items-center justify-between px-2 sm:px-8 opacity-30 sm:opacity-50 -z-10 overflow-hidden">
-          <img
-            id="left-img"
-            src="/images/3D_Shape_2.avif"
-            alt=""
-            aria-hidden="true"
-            className="w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain transform -translate-x-4 sm:translate-x-0"
-          />
-          <img
-            id="right-img"
-            src="/images/3D_Shape_4.avif"
-            alt=""
-            aria-hidden="true"
-            className="w-16 h-16 sm:w-28 sm:h-28 md:w-36 md:h-36 object-contain transform translate-x-4 sm:translate-x-0"
-          />
-        </div>
+  // ── Subtle parallax on hero text driven by mouse position ────────────────
+  // Sets --mx / --my CSS custom properties on #home so the overlay and text
+  // drift slightly, giving depth without touching Spline's own interaction.
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+      const { left, top, width, height } = el.getBoundingClientRect();
+      // Normalised -1 → +1
+      const mx = ((e.clientX - left) / width - 0.5) * 2;
+      const my = ((e.clientY - top) / height - 0.5) * 2;
+      el.style.setProperty("--mx", mx.toFixed(3));
+      el.style.setProperty("--my", my.toFixed(3));
+    });
+  }, []);
 
-        {/* Heading & Subtext */}
-        <div id="headings" className="w-full flex flex-col items-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-text-primary leading-[1.1] tracking-tight max-w-5xl mx-auto">
-            Robotics & Reinforcement Learning Engineer {" "}
-            <span className="text-indigo-600">
-             Building Autonomous 
-            </span>{" "}
-             Systems that learn, adapt, and act.
+  const handleMouseLeave = useCallback(() => {
+    cancelAnimationFrame(rafRef.current);
+    const el = scrollRef.current;
+    if (!el) return;
+    // Ease back to centre
+    el.style.setProperty("--mx", "0");
+    el.style.setProperty("--my", "0");
+  }, []);
+
+  return (
+    <section
+      ref={scrollRef}
+      id="home"
+      className="relative w-full overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={
+        {
+          "--mx": "0",
+          "--my": "0",
+        } as React.CSSProperties
+      }
+    >
+      {/* ── Full-viewport Spline 3D background ────────────────────────────── */}
+      <SplineHero />
+
+      {/* ── Gradient overlay (shifts slightly with mouse for depth) ─────────── */}
+      <div id="hero-overlay" aria-hidden="true" />
+
+      {/* ── Hero content ──────────────────────────────────────────────────── */}
+      <div
+        ref={sectionRef}
+        id="hero"
+        className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-8"
+      >
+        {/* Headings */}
+        <div id="headings" className="w-full flex flex-col items-center max-w-4xl mx-auto">
+          <h1>
+            Robotics &amp; Reinforcement Learning Engineer{" "}
+            <span className="hero-accent">Building Autonomous</span>{" "}
+            Systems that learn, adapt, and act.
           </h1>
-          
-          <p className="mt-4 md:mt-5 text-base sm:text-lg md:text-xl text-text-primary/75 max-w-2xl leading-relaxed font-medium">
-           Deep RL · Robot Control · ROS 2 · Simulation  · Applied AI
+
+          <p className="hero-sub">
+            Deep RL · Robot Control · ROS 2 · Simulation · Applied AI
           </p>
 
           {/* CTA Buttons */}
-          <div id="hero-cta" className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-6 md:mt-8">
+          <div id="hero-cta">
             <a
               href="#projects"
               className="hero-btn hero-btn-primary"
@@ -74,6 +105,11 @@ const Home = ({
               GitHub
             </a>
           </div>
+        </div>
+
+        {/* Scroll hint */}
+        <div id="scroll-hint" aria-label="Scroll down">
+          <span id="scroll-hint-dot" />
         </div>
       </div>
     </section>
