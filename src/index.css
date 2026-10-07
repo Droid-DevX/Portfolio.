@@ -206,7 +206,7 @@ body {
 
 
 
-    /* ── Dark gradient overlay — text readability + mouse-parallax depth ── */
+    /* ── Dark gradient overlay — text readability over 3D background ── */
     #hero-overlay {
       position: absolute;
       inset: 0;
@@ -215,14 +215,6 @@ body {
       background:
         radial-gradient(ellipse 70% 70% at 50% 50%, transparent 30%, rgba(15,23,42,0.55) 100%),
         linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.1) 40%, rgba(15,23,42,0.5) 100%);
-      /* Parallax only on pointer:fine (mouse) devices — not on touch */
-      @media (pointer: fine) {
-        transform: translate(
-          calc(var(--mx, 0) * -8px),
-          calc(var(--my, 0) * -8px)
-        );
-        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      }
     }
 
     /* ── Hero content wrapper ── */
@@ -245,14 +237,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* Text parallax only on pointer:fine — skip calc cost on touch devices */
-        @media (pointer: fine) {
-          transform: translate(
-            calc(var(--mx, 0) * 5px),
-            calc(var(--my, 0) * 5px)
-          );
-          transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
 
         h1 {
           font-weight: 800;
