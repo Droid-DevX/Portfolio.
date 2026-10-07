@@ -1,4 +1,4 @@
-import { useRef, useCallback } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { homeAnimations } from "../../animations/homeAnimation";
 import SplineHero from "./SplineHero";
