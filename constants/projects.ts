@@ -38,6 +38,7 @@ const projectsList: ProjectListType = [
           "Python, PyTorch, Stable-Baselines3, Gymnasium, PyBullet, SAC",
 
         githubLink: "https://github.com/Droid-DevX/RL-Enhanced-Guidance-Node-for-Actual-Fault-Tolerant-Control-of-Crazyflie-V2.1",
+        demoLink: "https://drive.google.com/file/d/19H1_BuyMiUbMCGNdpXDZsEO4YnVo6rg3/view?usp=drive_link",
 
         technicalDetails: {
           problem:
@@ -70,6 +71,7 @@ const projectsList: ProjectListType = [
           "C, C++, ROS 2, Crazyflie 2.1+, Python, Firmware",
 
         githubLink: "https://github.com/Droid-DevX/ROS2_Dynamic_Topology_Reconfiguration",
+        demoLink: "https://drive.google.com/file/d/1yCbKMukj5H8DGEfMfsBgANOVAxU8d0sH/view?usp=drive_link",
 
         technicalDetails: {
           problem:
@@ -122,6 +124,7 @@ const projectsList: ProjectListType = [
     category: "Robotics",
     techStack: "PyBullet, Stable-Baselines3, PPO, PD Control",
     githubLink: "https://github.com/Droid-DevX/Quadruped_Walking",
+    demoLink: "https://drive.google.com/file/d/1Y69D--LeR8MioIjyvAnC0mOlrrMkvtD5/view?usp=sharing",
 
     technicalDetails: {
       problem:
@@ -141,8 +144,8 @@ const projectsList: ProjectListType = [
     title: "Vectorless RAG",
     subtitle: "BM25 · FastAPI · React · Groq · PyMuPDF",
     description:
-      "Vector-database-free RAG with a custom BM25 inverted-index engine, page/section-aware chunking, query intent routing, and deterministic retrieval — no embeddings required.",
-    img: "/images/projects/rag.avif",
+      "Vector-database-free RAG with a custom BM25 inverted-index engine, page/section-aware chunking, query intent routing, and deterministic retrieval, no embeddings required.",
+    img: "/images/projects/bg-rag.avif",
     backgroundImg: "/images/projects/bg-rag.avif",
     category: "LLM",
     techStack: "BM25, FastAPI, React, Groq, PyMuPDF",
