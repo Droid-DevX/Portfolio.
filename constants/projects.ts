@@ -8,10 +8,6 @@ const projectsList: ProjectListType = [
     subtitle: "Deep RL + Fault-Resilient Robotics",
     description:
       "Two complementary approaches to fault-tolerant quadrotor systems: reinforcement learning for adaptive hover control and ROS 2-based fault isolation for resilient multi-robot coordination.",
-
-    // IMPORTANT:
-    // Replace these with the exact image filenames you have inside:
-    // public/images/projects/
     img: "/images/projects/crazyflie-fault-tolerant.avif",
     backgroundImg: "/images/projects/bg-crazyflie.avif",
 
@@ -99,6 +95,7 @@ const projectsList: ProjectListType = [
     category: "Robotics",
     techStack: "MuJoCo, Kinematics, Stable-Baselines3, PPO, PID",
     githubLink: "https://github.com/Droid-DevX/Robotic_Manipulation_Using_PPO_PID",
+    demoLink: "https://drive.google.com/file/d/1K-7k3Ogc-awNc6n-wmC9euFT1gqZKHWw/view?usp=drive_link",
 
     technicalDetails: {
       problem:
