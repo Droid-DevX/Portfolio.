@@ -4,7 +4,7 @@ const ContactDetails: ContactTtypes = {
   id: "contact-info",
   location: "Jaunpur, Uttar Pradesh, India",
   email: "ayushtando@gmail.com",
-  resumeUrls: "https://drive.google.com/file/d/1xtXPj_zDdewkcjb6okUlvRm6ylyagCeE/view",
+  resumeUrls: "https://drive.google.com/file/d/1PLTu6r82nC3ffF-WeJ6D3mqjFLuvWGvr/view?usp=sharing",
   socialLinks: {
     github: "https://github.com/Droid-DevX",
     linkedin: "https://www.linkedin.com/in/ayushtando/",

@@ -84,6 +84,89 @@ const projectsList: ProjectListType = [
   },
 
   {
+    id: "quadruped-locomotion",
+    href: "#quadruped-locomotion",
+    title: "Quadruped Control (Unitree A1)",
+    subtitle: "Deep RL + Legged Locomotion",
+    description:
+      "Two complementary RL controllers for the Unitree A1 quadruped: a blind sit-to-stand policy that generalises across flat, sloped, rough and stair terrains, and a PPO walking controller with joint-level PD torque control.",
+    img: "/images/projects/bg-gallery.avif",
+    backgroundImg: "/images/projects/bg-quadruped.png",
+
+    category: "Robotics",
+    isFlagship: true,
+
+    components: {
+      recognition: {
+        title: "Sit-to-Stand Transition",
+        subtitle: "MuJoCo · PPO · PD Control",
+
+        description:
+          "Developed a blind PPO controller that lets a Unitree A1 rise from a ground-sitting pose to a stable stand across flat, sloped, rough, and stair terrains using residual joint targets and a low-level PD controller.",
+
+        architecture: [
+          "27-D Blind Proprioception",
+          "PPO Policy (2×256 Tanh)",
+          "Residual Joint Targets",
+          "Min-Jerk Nominal Trajectory",
+          "PD Torque Control",
+          "MuJoCo Unitree A1",
+        ],
+
+        techStack:
+          "Python, MuJoCo, Stable-Baselines3, Gymnasium, PPO, PD Control",
+
+        githubLink: "https://github.com/Droid-DevX/Quadruped_Sit_To_Stand",
+        demoLink: "https://drive.google.com/file/d/1Bqv8Iu6auuXwl6Hs7-Pccv9kC8lY5bDo/view?usp=sharing",
+
+        technicalDetails: {
+          problem:
+            "Rising from a seated pose requires coordinated hip and knee torques under balance constraints, and a blind policy with no contact sensing, vision, or terrain information must still adapt to slopes, rough ground, and stairs.",
+
+          solution:
+            "Trained a PPO policy that outputs residual offsets on a min-jerk sit-to-stand trajectory, tracked by a 500 Hz joint-level PD controller. Used a four-stage terrain curriculum (flat, 10° slope, rough heightfield, 8 cm stairs) followed by unified multi-terrain training, with domain randomization over friction, mass, inertia, torque noise, and action latency.",
+
+          result:
+            "Achieved 100% success on flat, 10° slope, and 8 cm stairs, and 80% on rough terrain (5 episodes each), with zero falls. Held-out tests reached 100% with 10 cm stairs, μ = 0.20 low friction, and +30% payload, with rise times of about 2.1–2.8 s.",
+        },
+      },
+
+      production: {
+        title: "Quadruped Walking",
+        subtitle: "PyBullet · SB3 · PPO · PD Control",
+
+        description:
+          "PPO locomotion controller with joint-level PD torque control achieving 8.09 m forward traversal and 97.2% velocity-tracking accuracy across 5/5 flat-terrain evaluations.",
+
+        architecture: [
+          "Velocity Command",
+          "55-D Proprioceptive State",
+          "PPO Policy",
+          "Joint Position Targets",
+          "PD Torque Control",
+          "PyBullet Unitree A1",
+        ],
+
+        techStack: "PyBullet, Stable-Baselines3, PPO, PD Control",
+
+        githubLink: "https://github.com/Droid-DevX/Quadruped_Walking",
+        demoLink: "https://drive.google.com/file/d/1Y69D--LeR8MioIjyvAnC0mOlrrMkvtD5/view?usp=sharing",
+
+        technicalDetails: {
+          problem:
+            "Legged locomotion requires coordinating 12 joints with continuous proprioceptive feedback while maintaining balance across varied terrains.",
+
+          solution:
+            "55-D proprioceptive state, 12-D normalised joint-position action space, action smoothing, torque limiting, and orientation-aware reward shaping. Terrain curriculum: 5/5 successes at 0.50 difficulty.",
+
+          result:
+            "8.09 m forward traversal, 97.2% velocity-tracking accuracy, 5/5 flat-terrain evaluations (1000 steps). Terrain curriculum: 8.69 m displacement, bounded roll, pitch, and joint torques.",
+        },
+      },
+    },
+  },
+
+  {
     id: "vision-free-manipulation",
     href: "#vision-free-manipulation",
     title: "Vision-Free Robotic Manipulation",
@@ -110,32 +193,6 @@ const projectsList: ProjectListType = [
   },
 
   {
-    id: "quadruped-locomotion",
-    href: "#quadruped-locomotion",
-    title: "Quadruped Locomotion (Unitree A1)",
-    subtitle: "PyBullet · SB3 · PPO · PD Control",
-    description:
-      "PPO locomotion controller with joint-level PD torque control achieving 8.09 m forward traversal and 97.2% velocity-tracking accuracy across 5/5 flat-terrain evaluations.",
-    img: "/images/projects/bg-gallery.avif",
-    backgroundImg: "/images/projects/bg-quadruped.avif",
-    category: "Robotics",
-    techStack: "PyBullet, Stable-Baselines3, PPO, PD Control",
-    githubLink: "https://github.com/Droid-DevX/Quadruped_Walking",
-    demoLink: "https://drive.google.com/file/d/1Y69D--LeR8MioIjyvAnC0mOlrrMkvtD5/view?usp=sharing",
-
-    technicalDetails: {
-      problem:
-        "Legged locomotion requires coordinating 12 joints with continuous proprioceptive feedback while maintaining balance across varied terrains.",
-
-      solution:
-        "55-D proprioceptive state, 12-D normalised joint-position action space, action smoothing, torque limiting, and orientation-aware reward shaping. Terrain curriculum: 5/5 successes at 0.50 difficulty.",
-
-      result:
-        "8.09 m forward traversal, 97.2% velocity-tracking accuracy, 5/5 flat-terrain evaluations (1000 steps). Terrain curriculum: 8.69 m displacement, bounded roll, pitch, and joint torques.",
-    },
-  },
-
-  {
     id: "vectorless-rag",
     href: "#vectorless-rag",
     title: "Vectorless RAG",
@@ -158,32 +215,6 @@ const projectsList: ProjectListType = [
 
       result:
         "Grounded answers with source citations, deployed on Vercel + Render. No vector store required.",
-    },
-  },
-
-  {
-    id: "sports-image-classification",
-    href: "#sports-image-classification",
-    title: "Sports Image Classification (100 Classes)",
-    subtitle: "Python · CNN · Deep Learning",
-    description:
-      "Multi-class CNN trained to classify images across 100 sports categories with a large-scale image preprocessing pipeline.",
-    img: "/images/projects/bg-clss.avif",
-    backgroundImg: "/images/projects/bg-clss.avif",
-    category: "Computer Vision",
-    techStack: "Python, CNN, Deep Learning",
-    githubLink:
-      "https://github.com/Droid-DevX/Sports_Image_classification",
-
-    technicalDetails: {
-      problem:
-        "Fine-grained sports image classification across 100 categories requires robust preprocessing and a well-tuned convolutional architecture.",
-
-      solution:
-        "End-to-end deep learning workflow: large-scale image preprocessing pipeline, CNN architecture design, and systematic evaluation.",
-
-      result:
-        "Functional multi-class classifier covering 100 sports categories, end-to-end from data preparation to evaluation.",
     },
   },
 ];
