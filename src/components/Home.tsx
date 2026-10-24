@@ -33,7 +33,7 @@ const Home = ({
       <div
         ref={sectionRef}
         id="hero"
-        className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-8"
+        className="relative z-10 w-full min-h-screen flex flex-col items-center justify-end text-center px-4 sm:px-8 pb-12 sm:pb-14"
       >
         {/* Headings */}
         <div id="headings" className="w-full flex flex-col items-center max-w-4xl mx-auto">
@@ -50,16 +50,12 @@ const Home = ({
           {/* CTA Buttons */}
           <div id="hero-cta">
             <a
-              href="#projects"
+              href="https://drive.google.com/file/d/1PLTu6r82nC3ffF-WeJ6D3mqjFLuvWGvr/view"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hero-btn hero-btn-primary"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("projects")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
             >
-              View Projects
+              Resume
             </a>
             <a
               href="https://github.com/Droid-DevX"

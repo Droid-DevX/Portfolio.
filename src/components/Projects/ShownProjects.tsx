@@ -234,7 +234,11 @@ const FlagshipSubCard = ({
 ───────────────────────────────────────────── */
 
 const FlagshipCard = ({ project }: { project: ProjectType }) => {
-  const { cardRef, eventHandlers } = useTiltEffect();
+  const { cardRef, eventHandlers } = useTiltEffect({
+    maxTilt: 2.5,
+    duration: 0.35,
+    ease: "power2.out",
+  });
 
   return (
     <div
@@ -284,7 +288,7 @@ const FlagshipCard = ({ project }: { project: ProjectType }) => {
             {project.components.recognition && (
               <FlagshipSubCard
                 component={project.components.recognition}
-                typeLabel="DEEP REINFORCEMENT LEARNING"
+                typeLabel={project.components.recognition.label || "DRL"}
               />
             )}
 
@@ -292,7 +296,7 @@ const FlagshipCard = ({ project }: { project: ProjectType }) => {
             {project.components.production && (
               <FlagshipSubCard
                 component={project.components.production}
-                typeLabel="FIRMWARE + ROS 2"
+                typeLabel={project.components.production.label || "DRL"}
               />
             )}
           </div>
@@ -311,7 +315,11 @@ const StandardProjectCard = ({
 }: {
   project: ProjectType;
 }) => {
-  const { cardRef, eventHandlers } = useTiltEffect();
+  const { cardRef, eventHandlers } = useTiltEffect({
+    maxTilt: 5,
+    duration: 0.3,
+    ease: "power2.out",
+  });
   const [showDetails, setShowDetails] = useState(false);
 
   const details =

@@ -10,7 +10,8 @@ type TechnicalDetails = {
 
 type ProjectSubComponent = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  label?: string;
   description: string;
   architecture?: string[];
   techStack: string;
@@ -25,7 +26,7 @@ type ProjectType = {
     id: string;
     href: string;
     title: string;
-    subtitle: string;
+    subtitle?: string;
     description?: string;
     img: string;
     backgroundImg?: string;

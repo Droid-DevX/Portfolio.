@@ -1,23 +1,19 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 
-// ── Mobile detection (runs once at module level, no re-render cost) ──────────
-// We consider a device "mobile" if it has a coarse pointer (finger) OR a
-// viewport narrower than 768 px. On these devices we skip WebGL entirely.
-const isMobile =
+// Check for mobile (pointer: coarse or width < 768px)
+const checkIsMobile = () =>
   typeof window !== "undefined" &&
   (window.matchMedia("(pointer: coarse)").matches ||
     window.innerWidth < 768);
 
-// ── Lazy-load Spline ONLY on desktop ─────────────────────────────────────────
-// Dynamic import is deferred so mobile never downloads the ~900 kB bundle.
+// Lazy-load Spline ONLY on desktop so mobile never downloads the 2.2MB WebGL bundle
 let SplineComponent: React.ComponentType<{
   scene: string;
   onLoad?: (app: unknown) => void;
   style?: React.CSSProperties;
 }> | null = null;
 
-if (!isMobile) {
-  // Kick off the import immediately in the background (preload)
+if (typeof window !== "undefined" && !checkIsMobile()) {
   import("@splinetool/react-spline").then((mod) => {
     SplineComponent = mod.default;
   });
@@ -29,14 +25,21 @@ interface SplineHeroProps {
   onLoaded?: () => void;
 }
 
-// ── Mobile fallback: pure CSS animated background ────────────────────────────
-const MobileFallback = () => (
-  <div id="spline-bg" aria-hidden="true">
-    <div className="mobile-hero-bg" />
+// ── Lightweight, silky-smooth Mobile Robot Video (Zero WebGL lag) ───────────
+const MobileRobot = () => (
+  <div id="spline-bg" aria-hidden="true" className="mobile-robot-bg">
+    <video
+      src="/videos/shape_mobile_bg.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="mobile-hero-robot-video"
+    />
   </div>
 );
 
-// ── Desktop: full Spline 3D scene ─────────────────────────────────────────────
+// ── Desktop 3D Scene ───────────────────────────────────────────────────────
 const DesktopSpline = ({ onLoaded }: SplineHeroProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [SplineReady, setSplineReady] = useState<typeof SplineComponent>(SplineComponent);
@@ -53,7 +56,9 @@ const DesktopSpline = ({ onLoaded }: SplineHeroProps) => {
         setSplineReady(() => mod.default);
       }
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, [SplineReady]);
 
   const handleLoad = useCallback(
@@ -65,7 +70,7 @@ const DesktopSpline = ({ onLoaded }: SplineHeroProps) => {
     [onLoaded]
   );
 
-  // Pause render loop when hero is off-screen → eliminates scroll-back jank
+  // Pause render loop when hero is off-screen → eliminates scroll-back jank & saves battery
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -112,7 +117,17 @@ const DesktopSpline = ({ onLoaded }: SplineHeroProps) => {
 
 // ── Public component ──────────────────────────────────────────────────────────
 export const SplineHero = ({ onLoaded }: SplineHeroProps) => {
-  if (isMobile) return <MobileFallback />;
+  const [isMobile, setIsMobile] = useState(checkIsMobile);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(checkIsMobile());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  if (isMobile) return <MobileRobot />;
   return <DesktopSpline onLoaded={onLoaded} />;
 };
 

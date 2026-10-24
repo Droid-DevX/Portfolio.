@@ -5,7 +5,7 @@ const projectsList: ProjectListType = [
     id: "fault-tolerant-quadrotor-systems",
     href: "#fault-tolerant-quadrotor-systems",
     title: "Fault-Tolerant Quadrotor Systems",
-    subtitle: "Deep RL + Fault-Resilient Robotics",
+    // subtitle: "Deep RL + Fault-Resilient Robotics",
     description:
       "Two complementary approaches to fault-tolerant quadrotor systems: reinforcement learning for adaptive hover control and ROS 2-based fault isolation for resilient multi-robot coordination.",
     img: "/images/projects/crazyflie-fault-tolerant.avif",
@@ -18,6 +18,7 @@ const projectsList: ProjectListType = [
       recognition: {
         title: "Fault-Tolerant Hover Control",
         subtitle: "Domain-Randomized SAC",
+        label: "Simulation · Single Drone",
 
         description:
           "Developed a goal-conditioned Soft Actor-Critic controller for the Crazyflie V2.1 to maintain stable hover under severe actuator degradation.",
@@ -50,7 +51,8 @@ const projectsList: ProjectListType = [
 
       production: {
         title: "Resilient Quadrotor Swarms",
-        subtitle: "Firmware Fault Injection + ROS 2",
+        // subtitle: "Firmware Fault Injection + ROS 2",
+        label: "Hardware · Multi-Drone Swarm",
 
         description:
           "Developed a hardware-validated ROS 2 framework for resilient quadrotor swarms using firmware-level actuator fault injection and dynamic topology reconfiguration.",
@@ -87,7 +89,7 @@ const projectsList: ProjectListType = [
     id: "quadruped-locomotion",
     href: "#quadruped-locomotion",
     title: "Quadruped Control (Unitree A1)",
-    subtitle: "Deep RL + Legged Locomotion",
+    // subtitle: "Deep RL + Legged Locomotion",
     description:
       "Two complementary RL controllers for the Unitree A1 quadruped: a blind sit-to-stand policy that generalises across flat, sloped, rough and stair terrains, and a PPO walking controller with joint-level PD torque control.",
     img: "/images/projects/bg-gallery.avif",
@@ -100,7 +102,7 @@ const projectsList: ProjectListType = [
       recognition: {
         title: "Sit-to-Stand Transition",
         subtitle: "MuJoCo · PPO · PD Control",
-
+        label: "Phase 01 · Stand",
         description:
           "Developed a blind PPO controller that lets a Unitree A1 rise from a ground-sitting pose to a stable stand across flat, sloped, rough, and stair terrains using residual joint targets and a low-level PD controller.",
 
@@ -134,7 +136,7 @@ const projectsList: ProjectListType = [
       production: {
         title: "Quadruped Walking",
         subtitle: "PyBullet · SB3 · PPO · PD Control",
-
+        label: "Phase 02 · Walk",
         description:
           "PPO locomotion controller with joint-level PD torque control achieving 8.09 m forward traversal and 97.2% velocity-tracking accuracy across 5/5 flat-terrain evaluations.",
 
